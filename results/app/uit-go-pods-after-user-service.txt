@@ -1,0 +1,4 @@
+NAME                            READY   STATUS    RESTARTS   AGE
+mongodb-757c4cbfc9-9tskv        1/1     Running   0          10m
+postgresql-588d8fc7bd-xbqmq     1/1     Running   0          17m
+user-service-67657f76b8-4vwwt   1/1     Running   0          2m27s
