@@ -1,0 +1,1 @@
+{"service": "user-service", "status": "running", "database": {"host": "postgresql", "port": "5432", "db": "uitgo_userdb"}, "message": "UIT-Go User Service baseline is running"}

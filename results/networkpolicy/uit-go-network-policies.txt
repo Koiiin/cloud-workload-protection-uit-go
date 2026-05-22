@@ -1,0 +1,13 @@
+NAME                                      POD-SELECTOR         AGE
+allow-dns-egress                          <none>               2m
+api-gateway-allow-egress-to-backends      app=api-gateway      2m
+api-gateway-allow-external-ingress        app=api-gateway      2m
+default-deny-all                          <none>               2m
+driver-service-allow-egress-to-mongodb    app=driver-service   2m
+driver-service-allow-from-api-gateway     app=driver-service   2m
+mongodb-allow-from-driver-and-trip        app=mongodb          2m
+postgresql-allow-from-user-service        app=postgresql       2m
+trip-service-allow-egress-to-mongodb      app=trip-service     2m
+trip-service-allow-from-api-gateway       app=trip-service     2m
+user-service-allow-egress-to-postgresql   app=user-service     2m
+user-service-allow-from-api-gateway       app=user-service     2m
