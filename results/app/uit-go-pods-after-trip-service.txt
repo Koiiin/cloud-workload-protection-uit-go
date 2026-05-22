@@ -1,0 +1,6 @@
+NAME                              READY   STATUS    RESTARTS   AGE
+driver-service-7c764cffd4-rc9pl   1/1     Running   0          6m59s
+mongodb-757c4cbfc9-9tskv          1/1     Running   0          23m
+postgresql-588d8fc7bd-xbqmq       1/1     Running   0          30m
+trip-service-6bbdd56df8-j8tmq     1/1     Running   0          70s
+user-service-67657f76b8-4vwwt     1/1     Running   0          15m

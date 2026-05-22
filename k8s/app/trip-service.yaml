@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trip-service
+  namespace: uit-go-app
+  labels:
+    app: trip-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trip-service
+  template:
+    metadata:
+      labels:
+        app: trip-service
+    spec:
+      containers:
+      - name: trip-service
+        image: node:20-alpine
+        ports:
+        - containerPort: 3004
+        env:
+        - name: SERVICE_NAME
+          value: "trip-service"
+        - name: MONGO_HOST
+          value: "mongodb"
+        - name: MONGO_PORT
+          value: "27017"
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: MONGO_INITDB_ROOT_USERNAME
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: MONGO_INITDB_ROOT_PASSWORD
+        command:
+        - sh
+        - -c
+        - |
+          cat > /tmp/server.js <<'EOF'
+          const http = require("http");
+
+          const PORT = 3004;
+
+          const server = http.createServer((req, res) => {
+            const data = {
+              service: "trip-service",
+              status: "running",
+              database: {
+                host: process.env.MONGO_HOST,
+                port: process.env.MONGO_PORT
+              },
+              message: "UIT-Go Trip Service baseline is running"
+            };
+
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(data));
+          });
+
+          server.listen(PORT, () => {
+            console.log(`trip-service listening on port ${PORT}`);
+          });
+          EOF
+
+          node /tmp/server.js
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trip-service
+  namespace: uit-go-app
+spec:
+  type: ClusterIP
+  selector:
+    app: trip-service
+  ports:
+  - name: http
+    port: 3004
+    targetPort: 3004
