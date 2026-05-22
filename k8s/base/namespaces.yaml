@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: uit-go-app
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: security
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: neuvector
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: istio-system
