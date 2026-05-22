@@ -1,0 +1,304 @@
+
+
+──────────────────────────────────────────────────
+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: cert-manager-webhook
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (cert-manager-webhook) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rancher
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                         │
+├──────────┼─────────────────────┼────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (rancher) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (rancher)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-snapshot-controller-crd
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-snapshot-controller
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-coredns-rke2-coredns-autoscaler
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                            │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (autoscaler) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (autoscaler)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: DaemonSet
+Name: rke2-canal
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                              │
+├──────────┼─────────────────────┼────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (calico-node)  │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (calico-node)    │
+│          │                     │                                    │ spec.template.spec.containers[1].securityContext.runAsNonRoot=true (kube-flannel) │
+│          │                     │                                    │ spec.template.spec.containers[1].securityContext.runAsGroup=1000 (kube-flannel)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-snapshot-controller
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                                        │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (rke2-snapshot-controller) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-canal
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-ingress-nginx
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rancher-turtles-controller-manager
+Namespace: cattle-turtles-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                       │
+├──────────┼─────────────────────┼────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (manager) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-coredns-rke2-coredns
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                         │
+├──────────┼─────────────────────┼────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (coredns) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (coredns)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rancher-webhook
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                                 │
+├──────────┼─────────────────────┼────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (rancher-webhook) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (rancher-webhook)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-runtimeclasses
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-metrics-server
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                              │
+├──────────┼─────────────────────┼────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (metrics-server) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-metrics-server
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: cert-manager
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                                       │
+├──────────┼─────────────────────┼────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (cert-manager-controller) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: cert-manager-cainjector
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬────────────────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                                       │
+├──────────┼─────────────────────┼────────────────────────────────────┼────────────────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (cert-manager-cainjector) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴────────────────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-coredns
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                    │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (helm) │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: v1
+Kind: Pod
+Name: cloud-controller-manager-rke2-cwp
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                            │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.containers[0].securityContext.runAsNonRoot=true (cloud-controller-manager) │
+│          │                     │                                    │ spec.containers[0].securityContext.runAsGroup=1000 (cloud-controller-manager)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─────────────────┬───╮
+│        Controls │ 1 │
+│          Passed │ 0 │
+│          Failed │ 1 │
+│ Action Required │ 0 │
+╰─────────────────┴───╯
+
+Failed resources by severity:
+
+╭──────────┬────╮
+│ Critical │ 0  │
+│     High │ 0  │
+│   Medium │ 19 │
+│      Low │ 0  │
+╰──────────┴────╯
+
+╭──────────┬─────────────────────┬──────────────────┬───────────────┬──────────────────╮
+│ Severity │ Control name        │ Failed resources │ All Resources │ Compliance score │
+├──────────┼─────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│  Medium  │ Non-root containers │        19        │       33      │        42%       │
+├──────────┼─────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│          │   Resource Summary  │        19        │       33      │      42.42%      │
+╰──────────┴─────────────────────┴──────────────────┴───────────────┴──────────────────╯
+

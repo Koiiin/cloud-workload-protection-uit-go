@@ -1,0 +1,2 @@
+NAME       STATUS   ROLES                AGE   VERSION          INTERNAL-IP    EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION       CONTAINER-RUNTIME
+rke2-cwp   Ready    control-plane,etcd   11h   v1.35.5+rke2r1   192.168.1.35   <none>        Ubuntu 22.04.5 LTS   5.15.0-179-generic   containerd://2.2.3-k3s1

@@ -1,0 +1,3 @@
+Your current version is: v4.0.8
+Build commit: d7539c2264560a8685f59e89a731d6de833258a6
+Build date: 2026-05-08T16:49:49Z

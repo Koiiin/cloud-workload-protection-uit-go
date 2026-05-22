@@ -1,0 +1,314 @@
+
+
+──────────────────────────────────────────────────
+
+
+################################################################################
+ApiVersion: rbac.authorization.k8s.io
+Kind: User
+Name: u-mo773yttt4
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: rancher
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-coredns
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-canal
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: rancher-turtles-manager
+Namespace: cattle-turtles-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬──────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                     │
+├──────────┼──────────────────────┼────────────────────────────────────┼──────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[14].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[14].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[14].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]            │
+│          │                      │                                    │ relatedObjects[0].roleRef.name           │
+╰──────────┴──────────────────────┴────────────────────────────────────┴──────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-snapshot-controller
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: system-upgrade-controller
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-runtimeclasses
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: rancher-webhook
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: rbac.authorization.k8s.io
+Kind: User
+Name: u-b4qkhsnliz
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-ingress-nginx
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-snapshot-controller-crd
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: rbac.authorization.k8s.io
+Kind: User
+Name: user-5fslx
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: rbac.authorization.k8s.io
+Kind: User
+Name: user-5fslx
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: fleet-agent
+Namespace: cattle-fleet-local-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: 
+Kind: ServiceAccount
+Name: helm-rke2-metrics-server
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬──────────────────────┬────────────────────────────────────┬─────────────────────────────────────────╮
+│ Severity │ Control name         │ Docs                               │ Assisted remediation                    │
+├──────────┼──────────────────────┼────────────────────────────────────┼─────────────────────────────────────────┤
+│ Medium   │ Administrative Roles │ https://hub.armosec.io/docs/c-0035 │ relatedObjects[1].rules[0].resources[0] │
+│          │                      │                                    │ relatedObjects[1].rules[0].verbs[0]     │
+│          │                      │                                    │ relatedObjects[1].rules[0].apiGroups[0] │
+│          │                      │                                    │ relatedObjects[0].subjects[0]           │
+│          │                      │                                    │ relatedObjects[0].roleRef.name          │
+╰──────────┴──────────────────────┴────────────────────────────────────┴─────────────────────────────────────────╯
+
+
+╭─────────────────┬───╮
+│        Controls │ 1 │
+│          Passed │ 0 │
+│          Failed │ 1 │
+│ Action Required │ 0 │
+╰─────────────────┴───╯
+
+Failed resources by severity:
+
+╭──────────┬────╮
+│ Critical │ 0  │
+│     High │ 0  │
+│   Medium │ 16 │
+│      Low │ 0  │
+╰──────────┴────╯
+
+╭──────────┬──────────────────────┬──────────────────┬───────────────┬──────────────────╮
+│ Severity │ Control name         │ Failed resources │ All Resources │ Compliance score │
+├──────────┼──────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│  Medium  │ Administrative Roles │        16        │      159      │        90%       │
+├──────────┼──────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│          │   Resource Summary   │        16        │      159      │      89.94%      │
+╰──────────┴──────────────────────┴──────────────────┴───────────────┴──────────────────╯
+

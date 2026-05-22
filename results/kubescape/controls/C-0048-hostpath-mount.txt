@@ -1,0 +1,117 @@
+
+
+──────────────────────────────────────────────────
+
+
+################################################################################
+ApiVersion: v1
+Kind: Pod
+Name: cloud-controller-manager-rke2-cwp
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────┬────────────────────────────────────┬───────────────────────────────────────────────────────────────╮
+│ Severity │ Control name   │ Docs                               │ Assisted remediation                                          │
+├──────────┼────────────────┼────────────────────────────────────┼───────────────────────────────────────────────────────────────┤
+│ High     │ HostPath mount │ https://hub.armosec.io/docs/c-0048 │ spec.volumes[0]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[0] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[1]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[1] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[2]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[2] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[3]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[3] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[4]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[4] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[5]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[5] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[6]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[6] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[7]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[7] (cloud-controller-manager) │
+│          │                │                                    │ spec.volumes[8]                                               │
+│          │                │                                    │ spec.containers[0].volumeMounts[8] (cloud-controller-manager) │
+╰──────────┴────────────────┴────────────────────────────────────┴───────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: DaemonSet
+Name: rke2-canal
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name   │ Docs                               │ Assisted remediation                                            │
+├──────────┼────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────┤
+│ High     │ HostPath mount │ https://hub.armosec.io/docs/c-0048 │ spec.template.spec.volumes[5]                                   │
+│          │                │                                    │ spec.template.spec.volumes[7]                                   │
+│          │                │                                    │ spec.template.spec.volumes[7]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[6] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[6]                                   │
+│          │                │                                    │ spec.template.spec.volumes[6]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[0] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[9]                                   │
+│          │                │                                    │ spec.template.spec.volumes[0]                                   │
+│          │                │                                    │ spec.template.spec.volumes[0]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[1] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[8]                                   │
+│          │                │                                    │ spec.template.spec.volumes[8]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[5] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[2]                                   │
+│          │                │                                    │ spec.template.spec.volumes[2]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[4] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[1]                                   │
+│          │                │                                    │ spec.template.spec.volumes[1]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[3] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[3]                                   │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[2] (calico-node)  │
+│          │                │                                    │ spec.template.spec.volumes[3]                                   │
+│          │                │                                    │ spec.template.spec.containers[1].volumeMounts[0] (kube-flannel) │
+╰──────────┴────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: system-upgrade-controller
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────┬────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name   │ Docs                               │ Assisted remediation                                                         │
+├──────────┼────────────────┼────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ High     │ HostPath mount │ https://hub.armosec.io/docs/c-0048 │ spec.template.spec.volumes[2]                                                │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[2] (system-upgrade-controller) │
+│          │                │                                    │ spec.template.spec.volumes[1]                                                │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[1] (system-upgrade-controller) │
+│          │                │                                    │ spec.template.spec.volumes[0]                                                │
+│          │                │                                    │ spec.template.spec.containers[0].volumeMounts[0] (system-upgrade-controller) │
+╰──────────┴────────────────┴────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─────────────────┬───╮
+│        Controls │ 1 │
+│          Passed │ 0 │
+│          Failed │ 1 │
+│ Action Required │ 0 │
+╰─────────────────┴───╯
+
+Failed resources by severity:
+
+╭──────────┬───╮
+│ Critical │ 0 │
+│     High │ 3 │
+│   Medium │ 0 │
+│      Low │ 0 │
+╰──────────┴───╯
+
+╭──────────┬──────────────────┬──────────────────┬───────────────┬──────────────────╮
+│ Severity │ Control name     │ Failed resources │ All Resources │ Compliance score │
+├──────────┼──────────────────┼──────────────────┼───────────────┼──────────────────┤
+│   High   │ HostPath mount   │         3        │       33      │        91%       │
+├──────────┼──────────────────┼──────────────────┼───────────────┼──────────────────┤
+│          │ Resource Summary │         3        │       33      │      90.91%      │
+╰──────────┴──────────────────┴──────────────────┴───────────────┴──────────────────╯
+

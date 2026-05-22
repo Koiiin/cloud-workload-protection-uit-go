@@ -1,0 +1,422 @@
+
+
+──────────────────────────────────────────────────
+
+
+################################################################################
+ApiVersion: v1
+Kind: Pod
+Name: kube-apiserver-rke2-cwp
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rancher
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-canal
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: fleet-controller
+Namespace: cattle-fleet-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-metrics-server
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-snapshot-controller
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rancher-webhook
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-coredns-rke2-coredns-autoscaler
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: capi-controller-manager
+Namespace: cattle-capi-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: system-upgrade-controller
+Namespace: cattle-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: CronJob
+Name: fleet-cleanup-gitrepo-jobs
+Namespace: cattle-fleet-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: gitjob
+Namespace: cattle-fleet-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: DaemonSet
+Name: rke2-ingress-nginx-controller
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: helmops
+Namespace: cattle-fleet-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rke2-coredns-rke2-coredns
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: cert-manager-cainjector
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-snapshot-controller
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-runtimeclasses
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: cert-manager
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: cert-manager-webhook
+Namespace: cert-manager
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-ingress-nginx
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: CronJob
+Name: rke2-machineconfig-cleanup-cronjob
+Namespace: fleet-local
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-snapshot-controller-crd
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-metrics-server
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: batch/v1
+Kind: Job
+Name: helm-install-rke2-coredns
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: v1
+Kind: Pod
+Name: cloud-controller-manager-rke2-cwp
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: DaemonSet
+Name: rke2-canal
+Namespace: kube-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: rancher-turtles-controller-manager
+Namespace: cattle-turtles-system
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬────────────────────────┬────────────────────────────────────┬──────────────────────╮
+│ Severity │ Control name           │ Docs                               │ Assisted remediation │
+├──────────┼────────────────────────┼────────────────────────────────────┼──────────────────────┤
+│ Medium   │ Missing network policy │ https://hub.armosec.io/docs/c-0260 │                      │
+╰──────────┴────────────────────────┴────────────────────────────────────┴──────────────────────╯
+
+
+╭─────────────────┬───╮
+│        Controls │ 1 │
+│          Passed │ 0 │
+│          Failed │ 1 │
+│ Action Required │ 0 │
+╰─────────────────┴───╯
+
+Failed resources by severity:
+
+╭──────────┬────╮
+│ Critical │ 0  │
+│     High │ 0  │
+│   Medium │ 28 │
+│      Low │ 0  │
+╰──────────┴────╯
+
+╭──────────┬────────────────────────┬──────────────────┬───────────────┬──────────────────╮
+│ Severity │ Control name           │ Failed resources │ All Resources │ Compliance score │
+├──────────┼────────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│  Medium  │ Missing network policy │        28        │      102      │        73%       │
+├──────────┼────────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│          │    Resource Summary    │        28        │      102      │      72.55%      │
+╰──────────┴────────────────────────┴──────────────────┴───────────────┴──────────────────╯
+

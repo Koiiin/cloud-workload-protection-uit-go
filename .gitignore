@@ -1,0 +1,37 @@
+# Secrets
+.env
+*.env
+secret.yaml
+secrets.yaml
+*-secret.yaml
+
+# Kubernetes sensitive config
+kubeconfig
+*.kubeconfig
+.kube/
+config
+
+# SSH keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+
+# Large files
+*.mp4
+*.mkv
+*.zip
+*.tar
+*.tar.gz
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node/Python
+node_modules/
+__pycache__/
+venv/
+.venv/

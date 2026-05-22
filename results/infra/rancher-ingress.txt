@@ -1,0 +1,2 @@
+NAME      CLASS    HOSTS           ADDRESS                                            PORTS     AGE
+rancher   <none>   rancher.local   192.168.1.35,fdea:e111:ce6b:0:20c:29ff:fe23:a586   80, 443   83m

@@ -1,0 +1,52 @@
+
+
+──────────────────────────────────────────────────
+
+Framework scanned: NSA
+
+╭─────────────────┬────╮
+│        Controls │ 26 │
+│          Passed │ 7  │
+│          Failed │ 17 │
+│ Action Required │ 2  │
+╰─────────────────┴────╯
+
+Failed resources by severity:
+
+╭──────────┬─────╮
+│ Critical │ 0   │
+│     High │ 51  │
+│   Medium │ 166 │
+│      Low │ 10  │
+╰──────────┴─────╯
+
+Run with '--verbose'/'-v' to see control failures for each resource.
+
+╭──────────┬────────────────────────────────────────────────────┬──────────────────┬───────────────┬───────────────────╮
+│ Severity │ Control name                                       │ Failed resources │ All Resources │ Compliance score  │
+├──────────┼────────────────────────────────────────────────────┼──────────────────┼───────────────┼───────────────────┤
+│ Critical │ Disable anonymous access to Kubelet service        │         0        │       0       │ Action Required * │
+│ Critical │ Enforce Kubelet client TLS authentication          │         0        │       0       │ Action Required * │
+│   High   │ Applications credentials in configuration files    │        10        │      101      │        90%        │
+│   High   │ HostNetwork access                                 │         4        │       33      │        88%        │
+│   High   │ Privileged container                               │         1        │       33      │        97%        │
+│   High   │ Ensure CPU limits are set                          │        18        │       33      │        45%        │
+│   High   │ Ensure memory limits are set                       │        18        │       33      │        45%        │
+│  Medium  │ Prevent containers from allowing command execution │        16        │      159      │        90%        │
+│  Medium  │ Non-root containers                                │        19        │       33      │        42%        │
+│  Medium  │ Allow privilege escalation                         │         6        │       33      │        82%        │
+│  Medium  │ Ingress and Egress blocked                         │        27        │       34      │        21%        │
+│  Medium  │ Automatic mapping of service account               │        49        │      127      │        61%        │
+│  Medium  │ Administrative Roles                               │        16        │      159      │        90%        │
+│  Medium  │ Container hostPort                                 │         3        │       33      │        91%        │
+│  Medium  │ Cluster internal networking                        │        21        │       26      │        19%        │
+│  Medium  │ Linux hardening                                    │         7        │       33      │        79%        │
+│  Medium  │ Secret/etcd encryption enabled                     │         1        │       1       │         0%        │
+│  Medium  │ Audit logs enabled                                 │         1        │       1       │         0%        │
+│    Low   │ Immutable container filesystem                     │        10        │       33      │        70%        │
+├──────────┼────────────────────────────────────────────────────┼──────────────────┼───────────────┼───────────────────┤
+│          │                  Resource Summary                  │        114       │      381      │       65.79%      │
+╰──────────┴────────────────────────────────────────────────────┴──────────────────┴───────────────┴───────────────────╯
+
+🚨 * This control is scanned exclusively by the Kubescape operator, not the Kubescape CLI. Install the Kubescape operator:
+     https://kubescape.io/docs/install-operator/.

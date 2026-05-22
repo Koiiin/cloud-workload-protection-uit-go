@@ -1,0 +1,33 @@
+NAMESPACE                   NAME                                                    READY   STATUS      RESTARTS         AGE
+cattle-capi-system          capi-controller-manager-66f68c8d4b-gks4w                1/1     Running     2 (7m38s ago)    80m
+cattle-fleet-local-system   fleet-agent-b77479b79-sxfhd                             1/1     Running     2 (7m38s ago)    80m
+cattle-fleet-system         fleet-controller-6f44c8dd7-z2xpm                        3/3     Running     6 (7m38s ago)    82m
+cattle-fleet-system         gitjob-749bff87cb-xdb96                                 1/1     Running     6 (7m38s ago)    82m
+cattle-fleet-system         helmops-5f48444d8-vj8lz                                 1/1     Running     2 (7m38s ago)    82m
+cattle-system               rancher-85db98bbdc-ng42f                                1/1     Running     4 (6m58s ago)    83m
+cattle-system               rancher-webhook-78db456d87-9zq7n                        1/1     Running     2 (7m38s ago)    81m
+cattle-system               system-upgrade-controller-54c465b8cb-blnpw              1/1     Running     2 (7m38s ago)    80m
+cattle-turtles-system       rancher-turtles-controller-manager-d97c8965-k6xh7       1/1     Running     2 (7m38s ago)    80m
+cert-manager                cert-manager-5957746d66-hq9q5                           1/1     Running     5 (7m38s ago)    10h
+cert-manager                cert-manager-cainjector-567c6b47ff-d6hzb                1/1     Running     5 (7m38s ago)    10h
+cert-manager                cert-manager-webhook-7cc5c588cb-gfj85                   1/1     Running     3 (7m38s ago)    10h
+fleet-local                 rke2-machineconfig-cleanup-cronjob-29656805-gjlcn       0/1     Completed   0                156m
+kube-system                 cloud-controller-manager-rke2-cwp                       1/1     Running     17 (7m23s ago)   11h
+kube-system                 etcd-rke2-cwp                                           1/1     Running     6                11h
+kube-system                 helm-install-rke2-canal-hjhsv                           0/1     Completed   0                11h
+kube-system                 helm-install-rke2-coredns-l9grn                         0/1     Completed   0                11h
+kube-system                 helm-install-rke2-ingress-nginx-nqs9j                   0/1     Completed   0                11h
+kube-system                 helm-install-rke2-metrics-server-79ppl                  0/1     Completed   0                11h
+kube-system                 helm-install-rke2-runtimeclasses-8pfh6                  0/1     Completed   0                11h
+kube-system                 helm-install-rke2-snapshot-controller-crd-62xvn         0/1     Completed   0                11h
+kube-system                 helm-install-rke2-snapshot-controller-h6gqh             0/1     Completed   1                11h
+kube-system                 kube-apiserver-rke2-cwp                                 1/1     Running     4                11h
+kube-system                 kube-controller-manager-rke2-cwp                        1/1     Running     15 (7m22s ago)   11h
+kube-system                 kube-proxy-rke2-cwp                                     1/1     Running     0                7m14s
+kube-system                 kube-scheduler-rke2-cwp                                 1/1     Running     10 (7m38s ago)   11h
+kube-system                 rke2-canal-7cjhb                                        2/2     Running     8 (7m38s ago)    11h
+kube-system                 rke2-coredns-rke2-coredns-69c9c9877c-w74kp              1/1     Running     4 (7m38s ago)    11h
+kube-system                 rke2-coredns-rke2-coredns-autoscaler-645c95cdd7-crxcm   1/1     Running     4 (7m38s ago)    11h
+kube-system                 rke2-ingress-nginx-controller-tb5r6                     1/1     Running     4 (7m38s ago)    11h
+kube-system                 rke2-metrics-server-bdc688fb7-t26bl                     1/1     Running     4 (7m38s ago)    11h
+kube-system                 rke2-snapshot-controller-6d8cd4bbcc-688sq               1/1     Running     7 (7m38s ago)    11h

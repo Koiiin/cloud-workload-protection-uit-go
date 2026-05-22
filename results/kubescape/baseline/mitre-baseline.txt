@@ -1,0 +1,52 @@
+
+
+──────────────────────────────────────────────────
+
+Framework scanned: MITRE
+
+╭─────────────────┬────╮
+│        Controls │ 26 │
+│          Passed │ 7  │
+│          Failed │ 17 │
+│ Action Required │ 2  │
+╰─────────────────┴────╯
+
+Failed resources by severity:
+
+╭──────────┬─────╮
+│ Critical │ 0   │
+│     High │ 60  │
+│   Medium │ 191 │
+│      Low │ 6   │
+╰──────────┴─────╯
+
+Run with '--verbose'/'-v' to see control failures for each resource.
+
+╭──────────┬────────────────────────────────────────────────────┬──────────────────┬───────────────┬───────────────────╮
+│ Severity │ Control name                                       │ Failed resources │ All Resources │ Compliance score  │
+├──────────┼────────────────────────────────────────────────────┼──────────────────┼───────────────┼───────────────────┤
+│ Critical │ Disable anonymous access to Kubelet service        │         0        │       0       │ Action Required * │
+│ Critical │ Enforce Kubelet client TLS authentication          │         0        │       0       │ Action Required * │
+│   High   │ Applications credentials in configuration files    │        10        │      101      │        90%        │
+│   High   │ List Kubernetes secrets                            │        43        │      159      │        73%        │
+│   High   │ Writable hostPath mount                            │         3        │       33      │        91%        │
+│   High   │ HostPath mount                                     │         3        │       33      │        91%        │
+│   High   │ Privileged container                               │         1        │       33      │        97%        │
+│  Medium  │ Prevent containers from allowing command execution │        16        │      159      │        90%        │
+│  Medium  │ Roles with delete capabilities                     │        37        │      159      │        77%        │
+│  Medium  │ Delete Kubernetes events                           │        17        │      159      │        89%        │
+│  Medium  │ Administrative Roles                               │        16        │      159      │        90%        │
+│  Medium  │ CoreDNS poisoning                                  │        21        │      159      │        87%        │
+│  Medium  │ Validate admission controller (mutating)           │         3        │       3       │         0%        │
+│  Medium  │ Access container service account                   │        58        │       99      │        41%        │
+│  Medium  │ Cluster internal networking                        │        21        │       26      │        19%        │
+│  Medium  │ Secret/etcd encryption enabled                     │         1        │       1       │         0%        │
+│  Medium  │ Audit logs enabled                                 │         1        │       1       │         0%        │
+│    Low   │ Kubernetes CronJob                                 │         2        │       2       │         0%        │
+│    Low   │ Validate admission controller (validating)         │         4        │       4       │         0%        │
+├──────────┼────────────────────────────────────────────────────┼──────────────────┼───────────────┼───────────────────┤
+│          │                  Resource Summary                  │        118       │      296      │       62.89%      │
+╰──────────┴────────────────────────────────────────────────────┴──────────────────┴───────────────┴───────────────────╯
+
+🚨 * This control is scanned exclusively by the Kubescape operator, not the Kubescape CLI. Install the Kubescape operator:
+     https://kubescape.io/docs/install-operator/.

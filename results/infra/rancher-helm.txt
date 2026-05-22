@@ -1,0 +1,4 @@
+NAME                     	NAMESPACE    	REVISION	UPDATED                                	STATUS  	CHART                            	APP VERSION
+rancher                  	cattle-system	1       	2026-05-22 01:18:37.368861897 +0000 UTC	deployed	rancher-2.14.1                   	v2.14.1    
+rancher-webhook          	cattle-system	2       	2026-05-22 01:21:06.739118408 +0000 UTC	deployed	rancher-webhook-109.0.1+up0.10.4 	0.10.4     
+system-upgrade-controller	cattle-system	1       	2026-05-22 01:21:11.767549598 +0000 UTC	deployed	system-upgrade-controller-109.0.1	v0.19.1    
