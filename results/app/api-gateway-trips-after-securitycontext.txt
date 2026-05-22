@@ -1,0 +1,1 @@
+{"service":"trip-service","status":"running","database":{"host":"mongodb","port":"27017"},"message":"UIT-Go Trip Service baseline is running"}

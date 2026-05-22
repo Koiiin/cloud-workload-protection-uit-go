@@ -1,0 +1,7 @@
+NAME             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE
+api-gateway      NodePort    10.43.135.251   <none>        3000:30080/TCP   137m
+driver-service   ClusterIP   10.43.188.244   <none>        3003/TCP         148m
+mongodb          ClusterIP   10.43.165.182   <none>        27017/TCP        164m
+postgresql       ClusterIP   10.43.136.251   <none>        5432/TCP         172m
+trip-service     ClusterIP   10.43.102.68    <none>        3004/TCP         142m
+user-service     ClusterIP   10.43.87.229    <none>        8001/TCP         156m

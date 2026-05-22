@@ -1,0 +1,120 @@
+
+
+──────────────────────────────────────────────────
+
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: api-gateway
+Namespace: uit-go-app
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                             │
+├──────────┼─────────────────────┼────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (api-gateway) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (api-gateway)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: driver-service
+Namespace: uit-go-app
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                                │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (driver-service) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (driver-service)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: mongodb
+Namespace: uit-go-app
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                         │
+├──────────┼─────────────────────┼────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (mongodb) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (mongodb)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: user-service
+Namespace: uit-go-app
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                              │
+├──────────┼─────────────────────┼────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (user-service) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (user-service)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: trip-service
+Namespace: uit-go-app
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬───────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                              │
+├──────────┼─────────────────────┼────────────────────────────────────┼───────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (trip-service) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (trip-service)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴───────────────────────────────────────────────────────────────────────────────────╯
+
+################################################################################
+ApiVersion: apps/v1
+Kind: Deployment
+Name: postgresql
+Namespace: uit-go-app
+
+Controls: 1 (Failed: 1, action required: 0)
+
+╭──────────┬─────────────────────┬────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────╮
+│ Severity │ Control name        │ Docs                               │ Assisted remediation                                                            │
+├──────────┼─────────────────────┼────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────┤
+│ Medium   │ Non-root containers │ https://hub.armosec.io/docs/c-0013 │ spec.template.spec.containers[0].securityContext.runAsNonRoot=true (postgresql) │
+│          │                     │                                    │ spec.template.spec.containers[0].securityContext.runAsGroup=1000 (postgresql)   │
+╰──────────┴─────────────────────┴────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────╯
+
+
+╭─────────────────┬───╮
+│        Controls │ 1 │
+│          Passed │ 0 │
+│          Failed │ 1 │
+│ Action Required │ 0 │
+╰─────────────────┴───╯
+
+Failed resources by severity:
+
+╭──────────┬───╮
+│ Critical │ 0 │
+│     High │ 0 │
+│   Medium │ 6 │
+│      Low │ 0 │
+╰──────────┴───╯
+
+╭──────────┬─────────────────────┬──────────────────┬───────────────┬──────────────────╮
+│ Severity │ Control name        │ Failed resources │ All Resources │ Compliance score │
+├──────────┼─────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│  Medium  │ Non-root containers │         6        │       6       │        0%        │
+├──────────┼─────────────────────┼──────────────────┼───────────────┼──────────────────┤
+│          │   Resource Summary  │         6        │       6       │       0.00%      │
+╰──────────┴─────────────────────┴──────────────────┴───────────────┴──────────────────╯
+

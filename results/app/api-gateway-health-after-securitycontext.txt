@@ -1,0 +1,1 @@
+{"service":"api-gateway","status":"running","routes":["/api/users","/api/drivers","/api/trips"]}
