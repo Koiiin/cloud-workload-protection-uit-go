@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: driver-service
+  namespace: uit-go-app
+  labels:
+    app: driver-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: driver-service
+  template:
+    metadata:
+      labels:
+        app: driver-service
+    spec:
+      containers:
+      - name: driver-service
+        image: node:20-alpine
+        ports:
+        - containerPort: 3003
+        env:
+        - name: SERVICE_NAME
+          value: "driver-service"
+        - name: MONGO_HOST
+          value: "mongodb"
+        - name: MONGO_PORT
+          value: "27017"
+        - name: MONGO_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: MONGO_INITDB_ROOT_USERNAME
+        - name: MONGO_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: MONGO_INITDB_ROOT_PASSWORD
+        command:
+        - sh
+        - -c
+        - |
+          cat > /tmp/server.js <<'EOF'
+          const http = require("http");
+
+          const PORT = 3003;
+
+          const server = http.createServer((req, res) => {
+            const data = {
+              service: "driver-service",
+              status: "running",
+              database: {
+                host: process.env.MONGO_HOST,
+                port: process.env.MONGO_PORT
+              },
+              message: "UIT-Go Driver Service baseline is running"
+            };
+
+            res.writeHead(200, { "Content-Type": "application/json" });
+            res.end(JSON.stringify(data));
+          });
+
+          server.listen(PORT, () => {
+            console.log(`driver-service listening on port ${PORT}`);
+          });
+          EOF
+
+          node /tmp/server.js
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: driver-service
+  namespace: uit-go-app
+spec:
+  type: ClusterIP
+  selector:
+    app: driver-service
+  ports:
+  - name: http
+    port: 3003
+    targetPort: 3003
