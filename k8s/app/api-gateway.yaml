@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-gateway
+  namespace: uit-go-app
+  labels:
+    app: api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api-gateway
+  template:
+    metadata:
+      labels:
+        app: api-gateway
+    spec:
+      containers:
+      - name: api-gateway
+        image: node:20-alpine
+        ports:
+        - containerPort: 3000
+        env:
+        - name: USER_SERVICE_URL
+          value: "http://user-service:8001"
+        - name: DRIVER_SERVICE_URL
+          value: "http://driver-service:3003"
+        - name: TRIP_SERVICE_URL
+          value: "http://trip-service:3004"
+        command:
+        - sh
+        - -c
+        - |
+          cat > /tmp/server.js <<'EOF'
+          const http = require("http");
+
+          const PORT = 3000;
+
+          const routes = {
+            "/api/users": process.env.USER_SERVICE_URL,
+            "/api/drivers": process.env.DRIVER_SERVICE_URL,
+            "/api/trips": process.env.TRIP_SERVICE_URL,
+          };
+
+          function proxyRequest(targetUrl, res) {
+            http.get(targetUrl, (backendRes) => {
+              let body = "";
+
+              backendRes.on("data", (chunk) => {
+                body += chunk;
+              });
+
+              backendRes.on("end", () => {
+                res.writeHead(backendRes.statusCode || 200, {
+                  "Content-Type": "application/json"
+                });
+                res.end(body);
+              });
+            }).on("error", (err) => {
+              res.writeHead(502, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({
+                error: "Bad Gateway",
+                message: err.message
+              }));
+            });
+          }
+
+          const server = http.createServer((req, res) => {
+            if (req.url === "/" || req.url === "/health") {
+              res.writeHead(200, { "Content-Type": "application/json" });
+              res.end(JSON.stringify({
+                service: "api-gateway",
+                status: "running",
+                routes: Object.keys(routes)
+              }));
+              return;
+            }
+
+            if (routes[req.url]) {
+              proxyRequest(routes[req.url], res);
+              return;
+            }
+
+            res.writeHead(404, { "Content-Type": "application/json" });
+            res.end(JSON.stringify({
+              error: "Not Found",
+              available_routes: ["/health", "/api/users", "/api/drivers", "/api/trips"]
+            }));
+          });
+
+          server.listen(PORT, () => {
+            console.log(`api-gateway listening on port ${PORT}`);
+          });
+          EOF
+
+          node /tmp/server.js
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: api-gateway
+  namespace: uit-go-app
+spec:
+  type: NodePort
+  selector:
+    app: api-gateway
+  ports:
+  - name: http
+    port: 3000
+    targetPort: 3000
+    nodePort: 30080

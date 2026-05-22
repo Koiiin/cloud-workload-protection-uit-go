@@ -1,0 +1,7 @@
+NAME                              READY   STATUS    RESTARTS   AGE     IP            NODE       NOMINATED NODE   READINESS GATES
+api-gateway-7c5b4b6c69-579cj      1/1     Running   0          8m32s   10.42.0.142   rke2-cwp   <none>           <none>
+driver-service-7c764cffd4-rc9pl   1/1     Running   0          19m     10.42.0.138   rke2-cwp   <none>           <none>
+mongodb-757c4cbfc9-9tskv          1/1     Running   0          35m     10.42.0.133   rke2-cwp   <none>           <none>
+postgresql-588d8fc7bd-xbqmq       1/1     Running   0          43m     10.42.0.131   rke2-cwp   <none>           <none>
+trip-service-6bbdd56df8-j8tmq     1/1     Running   0          13m     10.42.0.140   rke2-cwp   <none>           <none>
+user-service-67657f76b8-4vwwt     1/1     Running   0          27m     10.42.0.135   rke2-cwp   <none>           <none>

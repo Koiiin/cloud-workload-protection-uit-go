@@ -1,0 +1,1 @@
+{"service":"driver-service","status":"running","database":{"host":"mongodb","port":"27017"},"message":"UIT-Go Driver Service baseline is running"}
