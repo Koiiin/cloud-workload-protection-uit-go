@@ -1,0 +1,136 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: driver-service-sa
+  namespace: uit-go-app
+automountServiceAccountToken: false
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: driver-service-secure
+  namespace: uit-go-app
+  labels:
+    app: driver-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: driver-service
+      version: secure
+  template:
+    metadata:
+      labels:
+        app: driver-service
+        version: secure
+    spec:
+      serviceAccountName: driver-service-sa
+      automountServiceAccountToken: false
+      hostNetwork: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+      - name: driver-service
+        image: node:20-alpine
+        command:
+        - sh
+        - -c
+        - |
+          node -e "require('http').createServer((req,res)=>{res.end('driver-service healthy')}).listen(3003)"
+        ports:
+        - containerPort: 3003
+        securityContext:
+          privileged: false
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3003
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 3003
+          initialDelaySeconds: 15
+          periodSeconds: 20
+        volumeMounts:
+        - name: tmp
+          mountPath: /tmp
+      volumes:
+      - name: tmp
+        emptyDir: {}
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: driver-service-secure
+  namespace: uit-go-app
+spec:
+  type: ClusterIP
+  selector:
+    app: driver-service
+    version: secure
+  ports:
+  - name: http
+    protocol: TCP
+    port: 3003
+    targetPort: 3003
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: driver-service-secure-policy
+  namespace: uit-go-app
+spec:
+  podSelector:
+    matchLabels:
+      app: driver-service
+      version: secure
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: api-gateway
+    ports:
+    - protocol: TCP
+      port: 3003
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: mongodb
+    ports:
+    - protocol: TCP
+      port: 27017
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: kube-system
+    ports:
+    - protocol: UDP
+      port: 53
+    - protocol: TCP
+      port: 53

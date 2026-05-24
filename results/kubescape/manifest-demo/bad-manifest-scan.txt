@@ -1,0 +1,14 @@
+
+
+Security posture overview for repo: 'k8s/bad-manifests/driver-service-bad.yaml'
+
+Workload
+╭──────────────────────┬───────────┬──────────────────────────────────────────────────────────────────────────────╮
+│ Control name         │ Resources │ View details                                                                 │
+├──────────────────────┼───────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ HostNetwork access   │     1     │ $ kubescape scan control C-0041 k8s/bad-manifests/driver-service-bad.yaml -v │
+│ HostPath mount       │     1     │ $ kubescape scan control C-0048 k8s/bad-manifests/driver-service-bad.yaml -v │
+│ Non-root containers  │     1     │ $ kubescape scan control C-0013 k8s/bad-manifests/driver-service-bad.yaml -v │
+│ Privileged container │     1     │ $ kubescape scan control C-0057 k8s/bad-manifests/driver-service-bad.yaml -v │
+╰──────────────────────┴───────────┴──────────────────────────────────────────────────────────────────────────────╯
+

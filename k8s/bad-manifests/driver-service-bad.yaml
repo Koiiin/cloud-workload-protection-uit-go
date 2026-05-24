@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: driver-service-bad
+  namespace: uit-go-app
+  labels:
+    app: driver-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: driver-service
+      version: bad
+  template:
+    metadata:
+      labels:
+        app: driver-service
+        version: bad
+    spec:
+      hostNetwork: true
+      automountServiceAccountToken: true
+      containers:
+      - name: driver-service
+        image: node:18-alpine
+        command:
+        - sh
+        - -c
+        - sleep 3600
+        ports:
+        - containerPort: 3003
+
+        env:
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: driver-db-secret
+              key: password
+
+        securityContext:
+          privileged: true
+          allowPrivilegeEscalation: true
+          runAsUser: 0
+
+        volumeMounts:
+        - name: host-docker-sock
+          mountPath: /var/run/docker.sock
+
+      volumes:
+      - name: host-docker-sock
+        hostPath:
+          path: /var/run/docker.sock
+          type: Socket
+#Lỗi	Dòng cấu hình
+#Chạy container quyền root	runAsUser: 0
+#Privileged container	privileged: true
+#Cho phép privilege escalation	allowPrivilegeEscalation: true
+#Dùng host network	hostNetwork: true
+#Mount Docker socket từ host	hostPath: /var/run/docker.sock
+#Tự động mount service account token	automountServiceAccountToken: true
+#Secret đưa vào env	DATABASE_PASSWORD từ secretKeyRef
+#Thiếu resource limits	không có resources.requests/limits
+#Thiếu health check	không có readinessProbe/livenessProbe
